@@ -4,6 +4,7 @@ import com.project.backend.model.User;
 import com.project.backend.repository.UserRepository;
 import com.project.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +16,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //hello world
-    @GetMapping("/")
+    //test world
+    @GetMapping(value = "/")
     public String helloworld(){
         return "Hello World";
     }
@@ -30,7 +31,8 @@ public class UserController {
     }
 
     //read users - GET
-    @GetMapping("/users")
+    @GetMapping(value = "/users")
+    @ResponseBody
     public List<User> getUsers(){
         return userService.getUsers();
     }
